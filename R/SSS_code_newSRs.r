@@ -252,7 +252,7 @@ SSS<-function(filepath,
         Input.draws.MQs[i,3]<-FMSY_M.draw*M_FMSY
         SRdat.new[21]<-"-0.51"
         write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-        RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+        RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
         if(file.exists(paste(filepath,"/h_BMSY_FMSY/bmsyb0.rep",sep=""))==TRUE)
         {
         
@@ -263,19 +263,19 @@ SSS<-function(filepath,
           {
             SRdat.new[21]<-"-0.1"
             write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
             if(steep_expo.out[1]<0.25|steep_expo.out[1]>=1|steep_expo.out[2]>10|SRMQ_par[i]>0.1)
             {
             SRdat.new[21]<-"-1.51"
             write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
             }
             if(steep_expo.out[1]<0.25|steep_expo.out[1]>=1|steep_expo.out[2]>10|SRMQ_par[i]>0.1)
             {
             SRdat.new[21]<-"-0.51"
             SRdat.new[23]<-"-0.31"
             write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
             }
           }
         if(steep_expo.out[1]>=0.25&steep_expo.out[1]<1&steep_expo.out[2]<=10&SRMQ_par[i]<0.1){x<-2}          
@@ -357,7 +357,7 @@ SSS<-function(filepath,
         #SRdat.new[grep("Amax",SRdat.new)+1][1]<-paste(SRdat.new.mod,collapse=" ")
         SRdat.new[21]<-"-0.51"
         write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-        RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+        RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
         if(file.exists(paste(filepath,"/h_BMSY_FMSY/bmsyb0.rep",sep=""))==TRUE)
         {
         
@@ -369,7 +369,7 @@ SSS<-function(filepath,
             #print("retry 1")
             SRdat.new[21]<-"-0.1"
             write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
         SRMQ_rep.new<-readLines(paste(filepath,"/h_BMSY_FMSY/bmsyb0.rep",sep=""))
         SRMQ_par[i]<-as.numeric(strsplit(readLines(paste(filepath,"/h_BMSY_FMSY/bmsyb0.par",sep="")),split=" ")[[1]][11])
         steep_expo.out<-as.numeric(strsplit(SRMQ_rep.new[1]," ")[[1]])
@@ -378,7 +378,7 @@ SSS<-function(filepath,
             #print("retry 2")
             SRdat.new[21]<-"-1.51"
             write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
         SRMQ_rep.new<-readLines(paste(filepath,"/h_BMSY_FMSY/bmsyb0.rep",sep=""))
         SRMQ_par[i]<-as.numeric(strsplit(readLines(paste(filepath,"/h_BMSY_FMSY/bmsyb0.par",sep="")),split=" ")[[1]][11])
         steep_expo.out<-as.numeric(strsplit(SRMQ_rep.new[1]," ")[[1]])
@@ -389,7 +389,7 @@ SSS<-function(filepath,
             SRdat.new[21]<-"-0.51"
             SRdat.new[23]<-"-0.31"
             write(SRdat.new,paste(filepath,"/h_BMSY_FMSY/BMSYB0.dat",sep=""))
-            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt")
+            RUN.SS(paste(filepath,"/h_BMSY_FMSY/",sep=""), ss.exe="BMSYB0",ss.cmd=" -nox > out.txt", OStype = OStype)
         SRMQ_rep.new<-readLines(paste(filepath,"/h_BMSY_FMSY/bmsyb0.rep",sep=""))
         SRMQ_par[i]<-as.numeric(strsplit(readLines(paste(filepath,"/h_BMSY_FMSY/bmsyb0.par",sep="")),split=" ")[[1]][11])
         steep_expo.out<-as.numeric(strsplit(SRMQ_rep.new[1]," ")[[1]])
@@ -545,8 +545,9 @@ SSS<-function(filepath,
     write(ctl.new,paste(filepath,"/",file.name[2],sep=""))
     
     #Run model
-    if(OStype=="Windows"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
-    if(OStype=="OSX_Linux"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="./ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
+    RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1", OStype = OStype)
+    # if(OStype=="Windows"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
+    # if(OStype=="OSX_Linux"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="./ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
     
     #Evaluate convergence and record values
     rep.new<-readLines(paste(filepath,"/Report.sso",sep=""))
@@ -568,8 +569,9 @@ SSS<-function(filepath,
         R0.line[c(3,4)]<-R0.explore[xx]
         ctl.new[grep("R0",ctl.new)]<-paste(R0.line,collapse=" ")
         write(ctl.new,paste(filepath,"/",file.name[2],sep=""))
-        if(OStype=="Windows"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
-        if(OStype=="OSX_Linux"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="./ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
+        RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1", OStype = OStype)
+        # if(OStype=="Windows"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
+        # if(OStype=="OSX_Linux"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="./ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
         rep.new<-readLines(paste(filepath,"/Report.sso",sep=""))
         if(is.na(as.numeric(strsplit(rep.new[grep(paste("Bratio_",as.numeric(Dep.line[1]),sep=""),rep.new)], " ")[[1]][3]))==TRUE){Dep.out.testR0<-10}
         if(is.na(as.numeric(strsplit(rep.new[grep(paste("Bratio_",as.numeric(Dep.line[1]),sep=""),rep.new)], " ")[[1]][3]))==FALSE){Dep.out.testR0<-as.numeric(strsplit(rep.new[grep(paste("Bratio_",as.numeric(Dep.line[1]),sep=""),rep.new)], " ")[[1]][3])}
@@ -693,8 +695,9 @@ SSS<-function(filepath,
         par_line[1]<-1
         starter.new[grep("ss.par",starter.new)]<-paste(par_line, collapse=" ")
         write(starter.new,paste(filepath,"/starter.ss",sep=""))
-        if(OStype=="Windows"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
-        if(OStype=="OSX_Linux"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="./ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
+        RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1", OStype = OStype)
+        # if(OStype=="Windows"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
+        # if(OStype=="OSX_Linux"){RUN.SS(paste(filepath,"/",sep=""), ss.exe="./ss",ss.cmd=" -nohess -nox > out.txt 2>&1")}
         #RUN.SS(paste(filepath,"/",sep=""), ss.exe="ss",ss.cmd=" -nohess -nox > out.txt 2>&1")
         rep.new<-readLines(paste(filepath,"/Report.sso",sep=""))
         #forecast.file<-readLines(paste(filepath,"/Forecast-report.sso",sep=""))
